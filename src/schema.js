@@ -11,7 +11,7 @@ export const typeDefs = `#graphql
     }
     type Author{
         id: ID!
-        title: String!
+        name: String!
         verified: Boolean!
     }
     type Query{
