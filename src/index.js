@@ -1,7 +1,10 @@
 import { ApolloServer } from "@apollo/server"
 import { startStandaloneServer } from "@apollo/server/standalone"
 
-const server = new ApolloServer({})
+const server = new ApolloServer({
+  typeDefs
+  // resolver
+})
 
 const { url } = await startStandaloneServer(server, { port: 4000 })
 
