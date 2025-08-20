@@ -13,6 +13,9 @@ const resolvers = {
     },
     reviews() {
       return db.reviews
+    },
+    review(_, args) {
+      return db.reviews.find((x) => x.id === args.id)
     }
   }
 }
