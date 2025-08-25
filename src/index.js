@@ -41,6 +41,17 @@ const resolvers = {
     game(parent) {
       return db.games.find((g) => g.id === parent.game_id)
     }
+  },
+  Mutation: {
+    addGame(_, args) {
+      const game = {
+        id: Math.floor(Math.random() * 10000).toString(),
+        ...args.game
+      }
+      db.games.push(game)
+
+      return game
+    }
   }
 }
 
