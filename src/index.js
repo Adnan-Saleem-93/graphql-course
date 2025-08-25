@@ -51,6 +51,11 @@ const resolvers = {
       db.games.push(game)
 
       return game
+    },
+    deleteGame(_, args) {
+      db.games = db.games.filter((g) => g.id !== args.id)
+
+      return db.games
     }
   }
 }
