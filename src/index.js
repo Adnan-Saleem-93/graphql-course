@@ -56,6 +56,16 @@ const resolvers = {
       db.games = db.games.filter((g) => g.id !== args.id)
 
       return db.games
+    },
+    updateGame(_, args) {
+      const matchedGameIndex = db.games.findIndex((g) => g.id === args.id)
+      let updatedGame = null
+      if (matchedGameIndex > -1) {
+        updatedGame = { ...db.games[matchedGameIndex], ...args.edits }
+        db.games.splice(matchedGameIndex, 1, updatedGame)
+      }
+
+      return updatedGame
     }
   }
 }
